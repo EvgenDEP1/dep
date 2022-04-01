@@ -15,18 +15,6 @@
             <a class="nav-link" href="{% url 'mainapp:index' %}">Главная</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">О нас</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Каталог</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Где нас найти?</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Корзина</a>
-        </li>
-        <li class="nav-item">
             {% if user.is_authenticated %}
             <a class="nav-link" href="{% url 'auth:logout' %}">Выйти</a>
 
