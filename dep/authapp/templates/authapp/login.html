@@ -1,0 +1,12 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="m-5">
+        <h3>Авторизация</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Войти</button>
+        </form>
+    </div>
+{% endblock %}

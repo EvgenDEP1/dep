@@ -39,9 +39,11 @@ class DepUser(AbstractUser):
     objects = DepUserManager()
 
     username = None
+    first_name = None
+    last_name = None
 
     login = models.CharField(
-        'login',
+        verbose_name='Логин',
         max_length=150,
         unique=True,
         help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.',
@@ -50,8 +52,14 @@ class DepUser(AbstractUser):
             'unique': "A user with that login already exists.",
         },
     )
-    d_birth = models.DateField(null=True)
-    avatar = models.ImageField(upload_to='avatars',
-                               blank=True)
 
     USERNAME_FIELD = 'login'
+
+    name = models.CharField('Имя', max_length=150, )
+    surname = models.CharField('Фамилия', max_length=150)
+    email = models.EmailField('Email')
+    patronymic = models.CharField('Отчество', max_length=150, blank=True)
+
+    def get_full_name(self):
+        full_name = '%s %s' % (self.name, self.surname)
+        return full_name.strip()

@@ -1,0 +1,16 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="m-5">
+        <h3>Регистрация</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <label for="id_rules">Подтверждаю согласие на обработку персональных данных:</label>
+                <input type="checkbox" name="rules" class="form-check-input rules" id="id_rules" required>
+            </p>
+            <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+{% endblock %}
